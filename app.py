@@ -17,7 +17,7 @@ DBPORT = int(os.environ.get("DBPORT"))
 # Create a connection to the MySQL database
 db_conn = connections.Connection(
     host= DBHOST,
-    port=DBPORT,
+    port= DBPORT,
     user= DBUSER,
     password= DBPWD, 
     db= DATABASE
