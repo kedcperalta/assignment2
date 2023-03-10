@@ -4,10 +4,8 @@ metadata:
   name: mysql-pod
 spec: 
   containers:
-  - name: mysql
+  - name: mysql-be
     image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mysq1v1
-    ports:
-    - containerPort: 3306
     env:
     - name: DBHOST
       value: localhost
@@ -15,4 +13,7 @@ spec:
       value: passwd123_db
     - name: DBPORT
       value: "3306"
+    ports:
+    - containerPort: 3306
+    
     
