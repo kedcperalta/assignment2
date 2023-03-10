@@ -1,30 +1,27 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: mysql-rs
+  name: deployment-db
   labels:
     app: mysql
     component: backend
-spec: 
+spec:
   selector:
     matchLabels:
       app: mysql
-      component: backend
   replicas: 3
-  template: 
+  template:
     metadata:
-      name: mysql-pod
       labels:
         app: mysql
-        component: backend
-    spec: 
+    spec:
       containers:
-      - name: mysql-be
+      - name: deployment-db-be
         image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mysq1v1
-        env: 
+        env:
         - name: MYSQL_ROOT_PASSWORD
           value: passwd123_db
-        - name: DBPORT
-          value: "3306"
-	ports:
+        - name: DBHOST
+          value: a2-db
+        ports:
         - containerPort: 3306

@@ -4,14 +4,16 @@ metadata:
   name: myweb-pod
 spec: 
   containers:
-  - name: myweb-fe
+  - name: myweb
     image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1
+    ports:
+    - containerPort: 3306
     env: 
     - name: DBHOST
-      value: "10.244.0.5"
+      value: localhost
     - name: DBPWD
-      value: "passwd123_db"
+      value: passwd123_db
     - name: DBPORT
       value: "3306"
-    ports:
+     ports:
      - containerPort: 8080
