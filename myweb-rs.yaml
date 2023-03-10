@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myweb-rs
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: employees
+  template:
+    metadata:
+      labels:
+        app: employees
+    spec:
+      containers:
+      - name: myweb-fe
+        image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1
+        env:
+        - name: DBHOST
+          value: "10.244.0.31"
+        - name: DBPWD
+          value: "passwd123_db"
+        - name: DPORT
+          value: "3306"
+        ports:
+        - containerPort: 8080
