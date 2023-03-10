@@ -17,7 +17,7 @@ spec:
         image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1
         env:
         - name: DBHOST
-          value: "10.244.0.31"
+          value: "10.244.0.8"
         - name: DBPWD
           value: "passwd123_db"
         - name: DPORT
