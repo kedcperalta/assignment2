@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-web
+  labels:
+    app: employees
+    component: frontend
+spec: 
+  selector:
+    matchLabels:
+      app: employees
+      component: frontend
+  replicas: 3
+  template: 
+    metadata:
+      labels: 
+        app: employees
+        component: frontend
+  spec: 
+    containers:
+    - name: deployment-web-fe
+      image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1
+      env:
+      - name: DBHOST
+        value: a2-db
+      - name: DBPWD
+        value: passwd123_db
+      - name: DBPORT
+        value: "3306"
+      ports:
+      - containerPort: 8080
