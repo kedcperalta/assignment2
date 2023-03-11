@@ -18,11 +18,11 @@ spec:
         component: frontend
   spec: 
     containers:
-    - name: deployment-web-fe
+    - name: webapp-fe
       image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1
       env:
       - name: DBHOST
-        value: a2-db
+        value: "a2.mysql.svc.local"
       - name: DBPWD
         value: passwd123_db
       - name: DBPORT

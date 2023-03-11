@@ -4,10 +4,8 @@ metadata:
   name: myweb-pod
 spec: 
   containers:
-  - name: myweb
-    image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1
-    ports:
-    - containerPort: 3306
+  - name: webapp-fe
+    image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mywebv1 
     env: 
     - name: DBHOST
       value: localhost
