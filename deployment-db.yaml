@@ -16,12 +16,12 @@ spec:
         app: mysql
     spec:
       containers:
-      - name: deployment-db-be
+      - name: mysql-db
         image: 232679950911.dkr.ecr.us-east-1.amazonaws.com/assign2-ecr:mysq1v1
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: passwd123_db
-        - name: DBHOST
-          value: a2-db
+        - name: DBPORT
+          value: "3306"
         ports:
         - containerPort: 3306
